@@ -1,0 +1,38 @@
+.homeContainer {
+    padding-top: 10rem;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.homeContainer h1 {
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    color: black;
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    background: linear-gradient(to top, #f4d742 50%, transparent 50%);
+    width: fit-content;
+    margin: 0 auto;
+    
+}
+
+.homeContainer img {
+    width: 100%;
+    margin: 1rem 0;
+    margin-bottom: 0;
+}
+
+.homeBtn {
+    background-color: #f4d742;
+    padding: 13px 20px;
+    border-radius: 8px;
+    margin-left: 5px;
+    font-size: 1.3rem;
+    width: fit-content;
+   
+}
