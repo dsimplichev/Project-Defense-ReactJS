@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import classes from './App.module.css'
+
 
 import Home from './components/home/Home';
 import Header from "./components/header/Header"
@@ -11,7 +13,7 @@ import Footer from './components/footer/Footer';
 function App() {
   
   return (
-    <div>
+    <div className={classes.mainbox}>
       
       <Header />
       <Explore />
