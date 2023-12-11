@@ -1,0 +1,69 @@
+.container {
+    background-color: #4a304d;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+    
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #fffdfd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f4d742;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+  }
+  
+  .btn:hover {
+    background-color: #555;
+  }
+  
+  
+  .container[type="make"],
+  .container[type="model"],
+  .container[type="mileage"],
+  .container[type="year"],
+  .container [type="gearbox"],
+  .container [type="imageUrl"] {
+    padding: 15px;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-bottom: 15px;
+    transition: background .3s;
+    color: #e6e6e6;
+  }

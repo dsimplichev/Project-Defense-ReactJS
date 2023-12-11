@@ -8,6 +8,10 @@ import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Explore from './components/explore/Explore';
 import Footer from './components/footer/Footer';
+import CarSell from './components/carSell/CarSell';
+import UsedCars from './components/usedCars/UsedCars';
+
+
 
 
 function App() {
@@ -22,6 +26,10 @@ function App() {
       <Route path="/" element={<Home />} /> 
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} /> 
+      <Route path="/sell-your-car" element={<CarSell />} />
+      <Route path="/used-cars" element={<UsedCars />} />
+      
+
      
       </Routes>
 

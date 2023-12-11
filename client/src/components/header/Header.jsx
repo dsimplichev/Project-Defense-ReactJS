@@ -13,8 +13,8 @@ export default function Header() {
                 <div>
                     <ul className={classes["main-container"]}>
                         <Link to="#">New cars</Link>
-                        <Link to="#">Used cars</Link>
-                        <Link to="#">Sell your car</Link>
+                        <Link to="/used-cars">Used cars</Link>
+                        <Link to="/sell-your-car">Sell your car</Link>
                         <Link to="#">Car reviews</Link>
                     </ul>
                 </div>

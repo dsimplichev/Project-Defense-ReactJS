@@ -1,23 +1,23 @@
 *,
 *:before,
-*:after{
+*:after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
- 
+
 
 
 .last-offer {
     padding: 150px 0;
     text-align: center;
-    
+
 }
 
 .heading {
     font-size: 45px;
     color: #090808;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     letter-spacing: 2px;
     background: linear-gradient(to top, #f44242 50%, transparent 50%);
     width: fit-content;
@@ -38,14 +38,12 @@
 .box {
     min-width: 300px;
     margin-right: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     text-align: left;
     padding: 20px;
     scroll-snap-align: start;
-    border-color: #f4d742;  
     border-radius: 15px;
-    background-color: #f3eded;
-    box-shadow: #000000;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,8 +64,8 @@
     font-size: 18px;
     margin-top: 10px;
     color: #000000;
-   
-    
+
+
 }
 
 .btn {
@@ -80,7 +78,7 @@
     border-radius: 4px;
     transition: background-color 0.3s;
 
-   
+
 }
 
 
