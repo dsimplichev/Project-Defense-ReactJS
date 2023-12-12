@@ -1,15 +1,18 @@
 
 import classes from './CarSell.module.css'
-
-
+import { create } from '../../services/carService';
+import { useNavigate } from 'react-router-dom';
 
 export default function CarSell() {
-   
-    const createCarSellSumbitHandler = (e) => {
+    const navigate = useNavigate();
+    const createCarSellSumbitHandler = async (e) => {
         e.preventDefault();
         const carData = Object.fromEntries(new FormData(e.currentTarget));
 
-        console.log(carData)
+        await create(carData);
+
+        navigate('/used-cars')
+
     }
 
 

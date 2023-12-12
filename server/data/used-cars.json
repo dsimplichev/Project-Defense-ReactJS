@@ -1,0 +1,13 @@
+{
+    "631b1462-6910-44cb-b18e-b552166510d4":{
+        "make": "Audi",
+        "model": "A4",
+        "mileage": "1000",
+        "year": "2023",
+        "fuel": "Petrol",
+        "gearbox": "Automatic",
+        "imageUrl": "https://mediaservice.audi.com/media/fast/H4sIAAAAAAAAAFvzloG1tIiBOTrayfuvpGh6-m1zJgaGigIGBgZGoDhTtNOaz-I_2DhCHsCEtzEwF-SlMwJZKUycmbmJ6an6QD4_I3taTmV-aUkxO0grz5zPscmx7yZUae6qPBW3M7jU44ikBgMrUBfjSiDBvBFI8EsBCU5mBjAJMq8fRDSB-EwOzAwMrBVARiQDCPDxlRblFCQWJebqlWemlGQIahgQCYTZXVxDHD19ggE6o28g6QAAAA?wid=850",
+        "description": "Nice car!",
+        "_id": "631b1462-6910-44cb-b18e-b552166510d4"
+    }
+}
