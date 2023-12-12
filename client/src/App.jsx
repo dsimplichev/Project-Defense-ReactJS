@@ -6,7 +6,6 @@ import Home from './components/home/Home';
 import Header from "./components/header/Header"
 import Login from './components/login/Login';
 import Register from './components/register/Register';
-import Explore from './components/explore/Explore';
 import Footer from './components/footer/Footer';
 import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
@@ -20,7 +19,7 @@ function App() {
     <div className={classes.mainbox}>
       
       <Header />
-      <Explore />
+      
       <Routes>
       
       <Route path="/" element={<Home />} /> 

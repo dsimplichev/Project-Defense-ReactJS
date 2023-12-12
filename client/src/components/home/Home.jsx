@@ -1,8 +1,11 @@
 import classes from "./Home.module.css"
 import { Link } from "react-router-dom"
+import  Explore  from '../explore/Explore'
 
 export default function Home() {
     return(
+        <>
+        <Explore />
         <section className={classes["last-offer"]} id="lastOffer">
             <h1 className={classes.heading}>LAST OFFERS</h1>
             <div className={classes.slider} >
@@ -40,5 +43,6 @@ export default function Home() {
 
            
         </section>
+        </>
     )
 }

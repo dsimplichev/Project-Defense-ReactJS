@@ -1,5 +1,5 @@
 import classes from "./UsedCars.module.css"
-import { Link }  from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function UsedCars() {
     return (
@@ -7,18 +7,12 @@ export default function UsedCars() {
             <h1 className={classes.usedtitle}>Used Cars</h1>
 
             <div className={classes.allcars}>
-                <div className={classes["allCars-info"]}>
-                    <img src="./images/img1.png" />
-                        <h2>Model</h2>
-                        <h3>Year</h3>
-                        <h4>Price</h4>
-                        <Link to="#" className={classes.btn}>Details</Link>
-                </div>
+                <img className={classes.img} src="/images/img1.png" alt="" />
+                <h2>Model</h2>
+                <div className={classes.price}>Price</div>
+                <Link to="#" className={classes.btn}>Details</Link>
             </div>
 
         </section>
     )
 }
-
-
-
