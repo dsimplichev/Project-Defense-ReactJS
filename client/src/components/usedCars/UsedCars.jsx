@@ -1,7 +1,18 @@
 import classes from "./UsedCars.module.css"
 import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import * as carService from '../../services/carService'
 
 export default function UsedCars() {
+    const [cars, setCars] =useState([])
+    
+    useEffect(() => {
+        carService.getAll()
+          .then(result => setCars(result))
+    }, []);
+
+    console.log(cars)
+
     return (
         <section id="used-cars">
             <h1 className={classes.usedtitle}>Used Cars</h1>
