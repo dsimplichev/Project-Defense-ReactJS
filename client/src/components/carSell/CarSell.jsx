@@ -36,8 +36,8 @@ export default function CarSell() {
                 <label>Fuel Type:</label>
                 <input type="fuel" id="fuel" name="fuel" placeholder="Fuel" />
 
-                <label>Gearbox:</label>
-                <input type="gearbox" id="gearbox" name="gearbox" placeholder="Gearbox" />
+                <label>Price:</label>
+                <input type="price" id="price" name="price" placeholder="Price" />
 
                 <label>Image:</label>
                 <input type="imageUrl" id="imageUrl" name="imageUrl" placeholder="Image" />
