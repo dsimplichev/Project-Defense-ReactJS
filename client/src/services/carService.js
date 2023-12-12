@@ -11,16 +11,7 @@ export const getAll = async () => {
 
 
 export const create = async (carData) => {
-   const response = await fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-            
-         },
-         body:JSON.stringify(carData)
-    });
-
-    const result = await response.json();
-
+    const result = await request('POST', baseUrl, carData);
+    
     return result;
 }
