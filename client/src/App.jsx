@@ -9,6 +9,7 @@ import Register from './components/register/Register';
 import Footer from './components/footer/Footer';
 import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
+import Details from './components/details/Details';
 
 
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/register" element={<Register />} /> 
       <Route path="/sell-your-car" element={<CarSell />} />
       <Route path="/used-cars" element={<UsedCars />} />
+      <Route path="/details" element={<Details />} />
       
 
      
