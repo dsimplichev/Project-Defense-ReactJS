@@ -2,6 +2,7 @@ import classes from "../../usedCars/UsedCars.module.css"
 import { Link }  from "react-router-dom"
 
 export default function CarList({
+    _id,
     make,
     price,
     imageUrl
@@ -12,7 +13,7 @@ export default function CarList({
             <img className={classes.img} src={imageUrl} alt="" />
             <h2>{make}</h2>
             <div className={classes.price}>{price}</div>
-            <Link to="/details" className={classes.btn}>Details</Link>
+            <Link to={`/details/${_id}`} className={classes.btn}>Details</Link>
         </div>
     )
 }
