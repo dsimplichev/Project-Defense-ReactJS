@@ -10,12 +10,18 @@ import Footer from './components/footer/Footer';
 import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
 import Details from './components/details/Details';
-
+import useForm from './hooks/useForm';
+import { useState } from 'react';
 
 
 
 function App() {
-  
+  const [auth, setAuth] = useState({});
+
+  const loginSubmitHandler = (values) => {
+    console.log(values)
+  }
+
   return (
     <div className={classes.mainbox}>
       
@@ -24,7 +30,7 @@ function App() {
       <Routes>
       
       <Route path="/" element={<Home />} /> 
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login />} loginSubmitHandler={loginSubmitHandler} />
       <Route path="/register" element={<Register />} /> 
       <Route path="/sell-your-car" element={<CarSell />} />
       <Route path="/used-cars" element={<UsedCars />} />
