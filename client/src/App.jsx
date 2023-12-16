@@ -21,7 +21,7 @@ import Details from './components/details/Details';
 
 
 function App() {
-  
+
   const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
@@ -29,12 +29,27 @@ function App() {
   const loginSubmitHandler = async (values) => {
     const result = await authService.login(values.email, values.password);
 
-   setAuth(result);
-   navigate(Path.Home)
+    setAuth(result);
+    navigate(Path.Home);
+  }
+
+ const registerSubmitHandler = async (values) => {
+    const result = await authService.register(values.email, values.password)
+    
+    setAuth(result);
+    navigate(Path.Home);
+  }
+
+  const values = {
+    loginSubmitHandler,
+    registerSubmitHandler,
+    username: auth.username,
+    email: auth.email,
+    isAuthenticated: !!auth.username,
   }
 
   return (
-    <AuthContext.Provider value={{loginSubmitHandler}}>
+    <AuthContext.Provider value={values}>
       <div className={classes.mainbox}>
 
         <Header />
