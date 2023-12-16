@@ -1,6 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
-import classes from './App.module.css'
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import AuthContext from './contexts/authContext';
 
+import * as authService from './services/authService'
+import classes from './App.module.css'
+import Path from './paths';
 
 import Home from './components/home/Home';
 import Header from "./components/header/Header"
@@ -10,16 +14,23 @@ import Footer from './components/footer/Footer';
 import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
 import Details from './components/details/Details';
-import { useState } from 'react';
-import AuthContext from './contexts/authContext';
+
+
+
 
 
 
 function App() {
+  
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values)
+
+  const loginSubmitHandler = async (values) => {
+    const result = await authService.login(values.email, values.password);
+
+   setAuth(result);
+   navigate(Path.Home)
   }
 
   return (
