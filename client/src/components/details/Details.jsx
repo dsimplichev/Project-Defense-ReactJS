@@ -18,7 +18,7 @@ export default function Details() {
   return (
     <section id="car-details" className={classes.container}>
       <div className={classes.details}>
-        <img src="" alt={car.make} />
+        <img src={car.imageUrl} alt={car.make} />
         <h2>{car.make}</h2>
         <article className={classes.info}>
           <p>

@@ -1,14 +1,18 @@
 import classes from "./Login.module.css"
 import { Link }  from "react-router-dom"
+import useForm from "../../hooks/useForm"
 
 export default function Login(){
-    
+    const {values, onChange, onSubmit} = useForm({
+        email: '',
+        password: '',
+    });
     
     return (
 
         <section>
             <div className={classes["main-container"]} >
-                <div className={classes["form-container"]}>
+                <div id="login" className={classes["form-container"]} onSubmit={onSubmit}>
 
                     <div className={classes["form-body"]}>
                         <h2 className={classes.title}>Sign in with</h2>
@@ -30,6 +34,8 @@ export default function Login(){
                                 name="email"
                                 id="email"
                                 placeholder="Enter your email"
+                                onChange={onChange}
+                                value={values.email}
                             />
                             <label htmlFor="password">Password</label>
                             <input
@@ -37,6 +43,8 @@ export default function Login(){
                                 name="password"
                                 id="password"
                                 placeholder="Enter your password"
+                                onChange={onChange}
+                                value={values.password}
                                 
                             />
                             <input type="submit" defaultValue="Log In" />

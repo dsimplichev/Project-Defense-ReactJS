@@ -13,7 +13,7 @@ export default function CarList({
             <img className={classes.img} src={imageUrl} alt="" />
             <h2>{make}</h2>
             <div className={classes.price}>{price}</div>
-            <Link to={`/details/${_id}`} className={classes.btn}>Details</Link>
+            <Link to={`/used-cars/${_id}`} className={classes.btn}>Details</Link>
         </div>
     )
 }

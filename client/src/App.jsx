@@ -28,7 +28,7 @@ function App() {
       <Route path="/register" element={<Register />} /> 
       <Route path="/sell-your-car" element={<CarSell />} />
       <Route path="/used-cars" element={<UsedCars />} />
-      <Route path="/details/:carId" element={<Details />} />
+      <Route path="/used-cars/:carId" element={<Details />} />
       
 
      
