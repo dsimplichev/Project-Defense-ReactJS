@@ -10,8 +10,8 @@ import Footer from './components/footer/Footer';
 import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
 import Details from './components/details/Details';
-import useForm from './hooks/useForm';
 import { useState } from 'react';
+import AuthContext from './contexts/authContext';
 
 
 
@@ -23,26 +23,28 @@ function App() {
   }
 
   return (
-    <div className={classes.mainbox}>
-      
-      <Header />
-      
-      <Routes>
-      
-      <Route path="/" element={<Home />} /> 
-      <Route path="/login" element={<Login />} loginSubmitHandler={loginSubmitHandler} />
-      <Route path="/register" element={<Register />} /> 
-      <Route path="/sell-your-car" element={<CarSell />} />
-      <Route path="/used-cars" element={<UsedCars />} />
-      <Route path="/used-cars/:carId" element={<Details />} />
-      
+    <AuthContext.Provider value={{loginSubmitHandler}}>
+      <div className={classes.mainbox}>
 
-     
-      </Routes>
+        <Header />
 
-      <Footer />
-    
-    </div>
+        <Routes>
+
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/sell-your-car" element={<CarSell />} />
+          <Route path="/used-cars" element={<UsedCars />} />
+          <Route path="/used-cars/:carId" element={<Details />} />
+
+
+
+        </Routes>
+
+        <Footer />
+
+      </div>
+    </AuthContext.Provider>
   )
 }
 

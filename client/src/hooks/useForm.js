@@ -16,7 +16,7 @@ const onSubmit = (e) => {
     e.preventDefault();
 
     submitHandler(values);
-}
+};
 return {
    values,
    onChange,
