@@ -10,16 +10,20 @@ export default function Details() {
   const { carId } = useParams();
 
   useEffect(() => {
+    console.log(carId)
     carService.getOne(carId)
       .then(setCar)
 
+
   }, [carId])
+
+  
 
 
   return (
     <section id="car-details" className={classes.container}>
       <div className={classes.details}>
-        <img src={car.imageUrl} alt="" />
+         <img src={car.imageUrl} alt="" /> 
         <h2>{car.make}</h2>
         <article className={classes.info}>
           <p>

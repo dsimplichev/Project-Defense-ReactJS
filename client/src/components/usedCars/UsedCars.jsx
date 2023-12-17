@@ -20,11 +20,12 @@ export default function UsedCars() {
     return (
         <section id="used-cars">
             <h1 className={classes.usedtitle}>Used Cars</h1>
-
+            <div className={classes.cardContainer}>
            {cars.map(car => (
               <CarList key={car._id} {...car}/>
            ))}
-          {}
+        
+          </div>
         </section>
     )
 }

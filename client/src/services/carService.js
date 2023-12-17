@@ -11,6 +11,8 @@ export const getAll = async () => {
 
 export const getOne = async (carId) => {
   const result = await request.get(`${baseUrl}/${carId}`)
+
+  return result
 }
 
 

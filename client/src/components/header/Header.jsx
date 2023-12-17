@@ -21,7 +21,7 @@ export default function Header() {
                     <ul className={classes["main-container"]}>
                         <Link to="#">New cars</Link>
                         <Link to="/used-cars">Used cars</Link>
-                        
+                        {isAuthenticated && <Link to="/sell-your-car">Sell your car</Link> }
                         <Link to="#">Car reviews</Link>
                     </ul>
                 </div>
@@ -29,7 +29,7 @@ export default function Header() {
 
                 {isAuthenticated && (
                 <ul className={classes["in-account"]}>
-                    <Link to="/sell-your-car">Sell your car</Link>
+                    
                     <Link className={classes.mycarsbtn} to="#">My cars</Link>
                     <Link className={classes.logoutbtn} to="/logout">Logout</Link>
                 </ul>
