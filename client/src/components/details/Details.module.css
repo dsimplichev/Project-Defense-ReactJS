@@ -66,3 +66,21 @@
 .btn button:hover {
     background-color: #f4d742;
 }
+
+.titleComment {
+    font-size: 45px;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000000; 
+   
+}
+
+.postCommentBtn{
+    background-color: #f4d742;
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+}

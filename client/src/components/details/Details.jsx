@@ -17,13 +17,13 @@ export default function Details() {
 
   }, [carId])
 
-  
+
 
 
   return (
     <section id="car-details" className={classes.container}>
       <div className={classes.details}>
-         <img src={car.imageUrl} alt="" /> 
+        <img src={car.imageUrl} alt="" />
         <h2>{car.make}</h2>
         <article className={classes.info}>
           <p>
@@ -47,9 +47,18 @@ export default function Details() {
           <button id="edit">Edit</button>
 
           <button id="delete">Delete</button>
+          <button id="comment">Comment</button>
         </div>
 
       </div>
+
+      <article className={classes.commentContainer}>
+        <h2 className={classes.titleComment}>Leave a Comment</h2>
+        <form className={classes.form}>
+        <textarea id="commentText" rows="4" placeholder="Type your comment here..."></textarea>
+        <button className={classes.postCommentBtn} type="submit" id="postCommentBtn">Post Comment</button>
+        </form>
+      </article> 
     </section>
 
   )
