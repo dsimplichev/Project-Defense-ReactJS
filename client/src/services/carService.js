@@ -1,6 +1,6 @@
 import * as request from "../lib/request";
 
-const baseUrl = 'http://localhost:3030/jsonstore/used-cars'
+const baseUrl = 'http://localhost:3030/data/used-cars'
 
 export const getAll = async () => {
   const result = await request.get(baseUrl);
@@ -10,7 +10,7 @@ export const getAll = async () => {
 };
 
 export const getOne = async (carId) => {
-  const result = await request.get(`${baseUrl}/${carId}`,)
+  const result = await request.get(`${baseUrl}/${carId}`)
 }
 
 

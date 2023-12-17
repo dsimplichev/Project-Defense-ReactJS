@@ -10,9 +10,12 @@ export default function UsedCars() {
     useEffect(() => {
         carService.getAll()
           .then(result => setCars(result))
+          .catch(err => {
+            console.log(err);
+          })
     }, []);
 
-    console.log(cars)
+    
 
     return (
         <section id="used-cars">

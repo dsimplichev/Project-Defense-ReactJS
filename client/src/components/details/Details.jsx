@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"
 import classes from "./Details.module.css"
 // import { Link }  from "react-router-dom"
-import { useParams } from "react-router-dom"
+
 import * as carService from '../../services/carService'
 
 export default function Details() {
