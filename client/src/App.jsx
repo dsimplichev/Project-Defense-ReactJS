@@ -14,7 +14,7 @@ import Footer from './components/footer/Footer';
 import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
 import Details from './components/details/Details';
-
+import Logout from './components/logout/Logout';
 
 
 
@@ -30,6 +30,7 @@ function App() {
     const result = await authService.login(values.email, values.password);
 
     setAuth(result);
+    localStorage.setItem('accessToken', result.accessToken);
     navigate(Path.Home);
   }
 
@@ -40,12 +41,20 @@ function App() {
     navigate(Path.Home);
   }
 
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken');
+  }
+
+
+
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
-    isAuthenticated: !!auth.email,
+    isAuthenticated: !!auth.accessToken,
   }
 
   return (
@@ -62,7 +71,7 @@ function App() {
           <Route path="/sell-your-car" element={<CarSell />} />
           <Route path="/used-cars" element={<UsedCars />} />
           <Route path="/used-cars/:carId" element={<Details />} />
-
+          <Route path="/logout" element={<Logout />} />
 
 
         </Routes>
