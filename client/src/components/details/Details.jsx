@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import classes from "./Details.module.css"
 // import { Link }  from "react-router-dom"
 
+
 import * as carService from '../../services/carService'
 
 export default function Details() {
@@ -51,14 +52,9 @@ export default function Details() {
         </div>
 
       </div>
-
-      <article className={classes.commentContainer}>
-        <h2 className={classes.titleComment}>Leave a Comment</h2>
-        <form className={classes.form}>
-        <textarea id="commentText" rows="4" placeholder="Type your comment here..."></textarea>
-        <button className={classes.postCommentBtn} type="submit" id="postCommentBtn">Post Comment</button>
-        </form>
-      </article> 
+      
+      
+     
     </section>
 
   )

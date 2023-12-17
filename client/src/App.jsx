@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import AuthContext from './contexts/authContext';
+import  { AuthProvider} from './contexts/authContext';
 
 import * as authService from './services/authService'
 import classes from './App.module.css'
@@ -15,6 +15,7 @@ import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
 import Details from './components/details/Details';
 import Logout from './components/logout/Logout';
+
 
 
 
@@ -62,7 +63,7 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={values}>
+    <AuthProvider value={values}>
       <div className={classes.mainbox}>
 
         <Header />
@@ -76,6 +77,7 @@ function App() {
           <Route path="/used-cars" element={<UsedCars />} />
           <Route path="/used-cars/:carId" element={<Details />} />
           <Route path="/logout" element={<Logout />} />
+          
 
 
         </Routes>
@@ -83,7 +85,7 @@ function App() {
         <Footer />
 
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   )
 }
 
