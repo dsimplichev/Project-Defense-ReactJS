@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
 import AuthContext from '../../contexts/authContext'
 
@@ -10,7 +10,7 @@ export default function Header() {
         username,
     } = useContext(AuthContext);
 
-    const [isLoggedin, setisLoggedin] = useState(true)
+    
 
     return (
         <header className={classes.mainHeader}>
