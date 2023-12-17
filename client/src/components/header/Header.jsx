@@ -38,8 +38,8 @@ export default function Header() {
 
                 {!isAuthenticated && (
                 <ul className={classes["out-account"]}>
-                    <Link to="/login">Sign in</Link>
-                    <Link to="/register">Sign up</Link>
+                    <Link className={classes.signinbtn}  to="/login">Sign in</Link>
+                    <Link className={classes.signupbtn} to="/register">Sign up</Link>
                 </ul>
                 )}
 

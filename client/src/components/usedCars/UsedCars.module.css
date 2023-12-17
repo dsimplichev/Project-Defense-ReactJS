@@ -8,10 +8,16 @@
 }
 
 
-#used-cars h1.usedtitle {
-  font-size: 28px;
-  color: #333;
+.usedtitle {
+  font-size: 45px;
+  color: #000000;
   margin-bottom: 20px;
+  text-align: center;
+  color: #000000; 
+  background: linear-gradient(to top, #f4d742 50%, transparent 50%);
+    width: fit-content;
+    margin: 0 auto;
+
 }
 
 
