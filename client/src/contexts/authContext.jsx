@@ -1,6 +1,8 @@
-import { createContext, useState } from "react"
+import { createContext} from "react"
 import * as authService from '../services/authService'
 import { useNavigate } from "react-router-dom";
+import usePersistedState from "../hooks/usePersistedState"
+import Path from '../paths'
 
 const AuthContext = createContext();
 
@@ -9,13 +11,10 @@ export const AuthProvider = ({
     
 }) => {
     const navigate = useNavigate();
-  const [auth, setAuth] = useState(() => {
-    localStorage.removeItem('accessToken');
+  const [auth, setAuth] = usePersistedState('auth', {}) 
+    
 
-    return {};
-  });
-
-
+    
   const loginSubmitHandler = async (values) => {
     const result = await authService.login(values.email, values.password);
 
