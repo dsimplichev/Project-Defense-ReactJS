@@ -5,6 +5,7 @@ import classes from "./Details.module.css"
 
 
 import * as carService from '../../services/carService'
+import * as commentService from '../../services/commentService'
 
 export default function Details() {
   const [car, setCar] = useState({})
@@ -17,6 +18,20 @@ export default function Details() {
 
 
   }, [carId])
+
+  const  addCommentHandler = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget)
+    
+   const newComment = await commentService.create(
+      carId,
+      formData.get('username'),
+      formData.get('commentText')
+    );
+
+    console.log(newComment);
+  }
 
 
 
@@ -71,8 +86,9 @@ export default function Details() {
       </div>
       <div className={classes.commentContainer}>
         <h2 className={classes.titleComment}>Leave a Comment</h2>
-        <form className={classes.form}>
-          <textarea id="commentText" rows="4" placeholder="Type your comment here..."></textarea>
+        <form className={classes.form} onSubmit={addCommentHandler}>
+           <input type="text" name="username" placeholder="username:" />
+          <textarea id="commentText" name="commentText" rows="4" placeholder="Type your comment here..."></textarea>
           <button className={classes.postCommentBtn} type="submit" value="Submit" id="postCommentBtn">Post Comment</button>
         </form>
       </div>
