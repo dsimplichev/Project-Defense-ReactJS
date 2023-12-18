@@ -9,12 +9,16 @@ import * as commentService from '../../services/commentService'
 
 export default function Details() {
   const [car, setCar] = useState({})
+  const [comments, setComments] = useState([])
   const { carId } = useParams();
 
   useEffect(() => {
     console.log(carId)
     carService.getOne(carId)
       .then(setCar)
+      
+    commentService.getAll()
+    .then(setComments);  
 
 
   }, [carId])
@@ -29,7 +33,7 @@ export default function Details() {
       formData.get('username'),
       formData.get('commentText')
     );
-
+    setComments(state => [...state, newComment]);
     console.log(newComment);
   }
 
@@ -56,6 +60,9 @@ export default function Details() {
               <p>
                 <b>Fuel Type:{car.fuel}</b>
               </p>
+              <p>
+                <b>Gearbox:{car.gearbox}</b>
+              </p>
               <p className={classes.price}>
                 <b>Price: ${car.price}</b>
               </p>
@@ -65,12 +72,16 @@ export default function Details() {
           <div className={classes.commentsDetails}>
             <h3 className={classes.commentsTitle}>Comments:</h3>
             <ul>
+                {comments.map(({_id, username, text}) => (
 
-              <li className={classes.comment}>
-                <p className={classes.contentComment}>Content: ...............</p>
+               
+              <li key={_id} className={classes.comment}>
+                <p className={classes.contentComment}>{username}: {text}</p>
               </li>
-
+               ))}
             </ul>
+
+
 
 
           </div>
