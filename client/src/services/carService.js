@@ -6,13 +6,13 @@ export const getAll = async () => {
   const result = await request.get(baseUrl);
 
 
-  return Object.values(result);
+  return result;
 };
 
 export const getOne = async (carId) => {
   const result = await request.get(`${baseUrl}/${carId}`)
 
-  return result
+  return result;
 }
 
 
