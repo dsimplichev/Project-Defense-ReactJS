@@ -34,7 +34,7 @@ Web application for car sales
 * The server used in the project is Softuni practice server (https://github.com/softuni-practice-server/softuni-practice-server).
 This is a REST service, created for educational purposes. A compiled bundle should be available with every exercise's resources. To execute it, run the included start.bat file, or manually open a command prompt and run:
 
- #### node .\server.js  
+ #### node server.js  
 
 * It was modified, so the initial users have admin role and the initial collecitons are changed.
 
