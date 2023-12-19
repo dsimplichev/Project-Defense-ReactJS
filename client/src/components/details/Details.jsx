@@ -2,7 +2,7 @@ import { useContext, useEffect, useReducer, useState } from "react";
 import { useParams } from "react-router-dom"
 import classes from "./Details.module.css"
 import AuthContext from "../../contexts/authContext"
-// import { Link }  from "react-router-dom"
+import { Link }  from "react-router-dom"
 import reducer from "./commentReducer";
 import useForm from '../../hooks/useForm';
 import * as carService from '../../services/carService'
@@ -11,45 +11,45 @@ import * as commentService from '../../services/commentService'
 
 
 export default function Details() {
-  const { email } = useContext(AuthContext);
+  const { email, userId } = useContext(AuthContext);
   const [car, setCar] = useState({})
   const [comments, dispatch] = useReducer(reducer, [])
   const { carId } = useParams();
-  const {} = useForm()
+
 
   useEffect(() => {
-  
+
     carService.getOne(carId)
       .then(setCar)
-      
-    commentService.getAll(carId)
-    .then((result) => {
-      dispatch({
-      type: 'GET_ALL_COMMENTS',
-      payload: result,
-    });  
 
-  });
+    commentService.getAll(carId)
+      .then((result) => {
+        dispatch({
+          type: 'GET_ALL_COMMENTS',
+          payload: result,
+        });
+
+      });
   }, [carId])
 
-  const  addCommentHandler = async (e) => {
-    e.preventDefault();
+  const addCommentHandler = async (values) => {
 
-    const formData = new FormData(e.currentTarget)
-    
-   const newComment = await commentService.create(
+
+    const newComment = await commentService.create(
       carId,
-      formData.get('commentText')
+      values.commentText
     );
     newComment.owner = { email };
-    dispatch ({
+    dispatch({
       type: 'ADD_COMMENT',
       payload: newComment
     })
   }
+  const { values, onChange, onSubmit } = useForm(addCommentHandler, {
+    commentText: '',
+  })
 
-
-
+ 
 
   return (
     <section id="car-details" className={classes.container}>
@@ -81,35 +81,38 @@ export default function Details() {
             <p className={classes.description}>{car.description}</p>
           </div>
           <div className={classes.commentsDetails}>
+           
             <h3 className={classes.commentsTitle}>Comments:</h3>
             <ul>
-                {comments.map(({_id, text, owner: { email }}) => (
+              {comments.map(({ _id, text, owner: { email } }) => (
 
-               
-              <li key={_id} className={classes.comment}>
-                <p className={classes.contentComment}>{email}: {text}</p>
-              </li>
-               ))}
+
+                <li key={_id} className={classes.comment}>
+                  <p className={classes.contentComment}>{email}: {text}</p>
+                </li>
+              ))}
             </ul>
+            {userId === car._ownerId && (
+            <div className={classes.btn}>
+              <Link to="/used-cars/:carId/edit" id="edit">Edit</Link>
 
+              <Link to="/used-cars/:carId/delete"id="delete">Delete</Link>
+
+            </div>
+           )}
 
 
 
           </div>
 
-          {/* <div className={classes.btn}>
-          <button id="edit">Edit</button>
 
-          <button id="delete">Delete</button>
-          <button id="comment">Comment</button>
-        </div> */}
 
         </div>
       </div>
       <div className={classes.commentContainer}>
         <h2 className={classes.titleComment}>Leave a Comment</h2>
-        <form className={classes.form} onSubmit={addCommentHandler}>
-          <textarea id="commentText" name="commentText" rows="4" placeholder="Type your comment here..."></textarea>
+        <form className={classes.form} onSubmit={onSubmit}>
+          <textarea id="commentText" name="commentText" value={values.comment} onChange={onChange} rows="4" placeholder="Type your comment here..."></textarea>
           <button className={classes.postCommentBtn} type="submit" value="Submit" id="postCommentBtn">Post Comment</button>
         </form>
       </div>

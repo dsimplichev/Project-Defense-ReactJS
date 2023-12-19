@@ -38,6 +38,7 @@ function App() {
           <Route path="/used-cars" element={<UsedCars />} />
           <Route path="/used-cars/:carId" element={<Details />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path={Path.CarEdit} element={<CarEdit />} />
           
 
 
