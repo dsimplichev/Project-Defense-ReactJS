@@ -1,5 +1,5 @@
 import { useContext, useEffect, useReducer, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import classes from "./Details.module.css"
 import AuthContext from "../../contexts/authContext"
 import { Link }  from "react-router-dom"
@@ -11,6 +11,7 @@ import { pathToUrl } from "../../utils/pathUtils";
 import Path from "../../paths";
 
 export default function Details() {
+  const navigate = useNavigate();
   const { email, userId } = useContext(AuthContext);
   const [car, setCar] = useState({})
   const [comments, dispatch] = useReducer(reducer, [])
@@ -45,6 +46,17 @@ export default function Details() {
       payload: newComment
     })
   }
+
+  const deleteButtonHandler = async () => {
+    const hasConfirmed = confirm(`Are you sure you want to delete ${car.make}`);
+
+    if (hasConfirmed) {
+        await carService.remove(carId);
+
+        navigate('/used-cars');
+    }
+}
+
   const { values, onChange, onSubmit } = useForm(addCommentHandler, {
     commentText: '',
   })
@@ -93,7 +105,7 @@ export default function Details() {
             <div className={classes.btn}>
               <Link className={classes.edit} to={pathToUrl(Path.CarEdit, { carId })} id="edit">Edit</Link>
 
-              <Link className={classes.delete} to="/used-cars/:carId/delete"id="delete">Delete</Link>
+              <button className={classes.delete} onClick={deleteButtonHandler} id="delete">Delete</button>
 
             </div>
            )}

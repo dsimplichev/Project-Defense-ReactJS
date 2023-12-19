@@ -8,26 +8,7 @@ import * as carService from '../../services/carService'
 export default function CarEdit() {
     const navigate = useNavigate();
     const {carId} = useParams();
-    const [car, setCar] = useState({})
-
-    useEffect(() => {
-       carService.getOne(carId)
-       .then(result => {
-        setCar(result);
-       });
-    }, [carId]);
-
-    const createCarSellSumbitHandler = async (values) => {
-       
-        
-
-        await create(values);
-
-        navigate('/used-cars')
-
-    }
- 
-    const { values, onChange, onSubmit } = useForm(createCarSellSumbitHandler, {
+    const [car, setCar] = useState({
         make: '',
         model: '',
         mileage: '',
@@ -36,12 +17,30 @@ export default function CarEdit() {
         price: '',
         imageUr: '',
         description: '',
-
     })
+
+    useEffect(() => {
+       carService.getOne(carId)
+       .then(result => {
+        setCar(result);
+       });
+    }, [carId]);
+
+    const editCarSumbitHandler = async (values) => {
+       
+        
+
+        await carService.edit( carId, values);
+
+        navigate('/used-cars')
+
+    }
+ 
+    const { values, onChange, onSubmit } = useForm(editCarSumbitHandler, car);
 
     return (
         <section id="create-page" className="auth">
-            <form id="create" className={classes.container} onSubmit={createCarSellSumbitHandler}   >
+            <form id="create" className={classes.container} onSubmit={editCarSumbitHandler}   >
                 <h1>Sell your car</h1>
 
                 <label>Make:</label>
