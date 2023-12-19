@@ -12,7 +12,7 @@ Web application for car sales
 * Used cars -> Catalog which contains all cars for sale
 * New cars -> A page offering brand new cars
 * Car reviews -> A page for car reviews
-* Login/Register Page -> This page appears when you click on Header's sign-in icon. If you don't have profile, you can switch to sign-up form..
+* Sign in/Sign up Page -> This page appears when you click on Header's sign-in icon. If you don't have profile, you can switch to sign-up form..
 
 
 ## Private part (Available for Registered Users)
