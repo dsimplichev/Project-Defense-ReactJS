@@ -11,12 +11,14 @@ Web application for car sales
 * Home Page -> You can find basic information.
 * Used cars -> Catalog which contains all cars for sale
 * New cars -> A page offering brand new cars
+* Car reviews -> A page for car reviews
 * Login/Register Page -> This page appears when you click on Header's sign-in icon. If you don't have profile, you can switch to sign-up form..
+
 
 ## Private part (Available for Registered Users)
 ### Logged in users have access to the following:
 * Sell your car -> You can fill  the form and list your car for sale
-* Add Comment -> You can add a comment to any ad
+* Leave a Comment -> You can add a comment to any ad
 ### Logged in user (owner) have access to the following:
 * Edit  -> You can change the information about the car  you created
 * Delete  -> You can delete the car you added.
