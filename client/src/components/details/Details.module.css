@@ -163,4 +163,24 @@
     font-size: 25px;
     text-align: center
   }
+
+  .edit {
+    background-color: #6666fc;
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .delete {
+    background-color: #6666fc;
+    color: #000000;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
   

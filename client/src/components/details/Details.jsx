@@ -7,8 +7,8 @@ import reducer from "./commentReducer";
 import useForm from '../../hooks/useForm';
 import * as carService from '../../services/carService'
 import * as commentService from '../../services/commentService'
-
-
+import { pathToUrl } from "../../utils/pathUtils";
+import Path from "../../paths";
 
 export default function Details() {
   const { email, userId } = useContext(AuthContext);
@@ -71,9 +71,6 @@ export default function Details() {
               <p>
                 <b>Fuel Type:{car.fuel}</b>
               </p>
-              <p>
-                <b>Gearbox:{car.gearbox}</b>
-              </p>
               <p className={classes.price}>
                 <b>Price: ${car.price}</b>
               </p>
@@ -94,9 +91,9 @@ export default function Details() {
             </ul>
             {userId === car._ownerId && (
             <div className={classes.btn}>
-              <Link to="/used-cars/:carId/edit" id="edit">Edit</Link>
+              <Link className={classes.edit} to={pathToUrl(Path.CarEdit, { carId })} id="edit">Edit</Link>
 
-              <Link to="/used-cars/:carId/delete"id="delete">Delete</Link>
+              <Link className={classes.delete} to="/used-cars/:carId/delete"id="delete">Delete</Link>
 
             </div>
            )}

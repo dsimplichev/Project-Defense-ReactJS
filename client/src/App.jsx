@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-
+import Path from './paths';
 import  { AuthProvider} from './contexts/authContext';
 import classes from './App.module.css'
 
@@ -13,7 +13,7 @@ import CarSell from './components/carSell/CarSell';
 import UsedCars from './components/usedCars/UsedCars';
 import Details from './components/details/Details';
 import Logout from './components/logout/Logout';
-
+import CarEdit from './components/edit/CarEdit';
 
 
 
