@@ -1,26 +1,35 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { useParams } from "react-router-dom"
 import classes from "./Details.module.css"
+import AuthContext from "../../contexts/authContext"
 // import { Link }  from "react-router-dom"
-
-
+import reducer from "./commentReducer";
+import useForm from '../../hooks/useForm';
 import * as carService from '../../services/carService'
 import * as commentService from '../../services/commentService'
 
+
+
 export default function Details() {
+  const { email } = useContext(AuthContext);
   const [car, setCar] = useState({})
-  const [comments, setComments] = useState([])
+  const [comments, dispatch] = useReducer(reducer, [])
   const { carId } = useParams();
+  const {} = useForm()
 
   useEffect(() => {
-    console.log(carId)
+  
     carService.getOne(carId)
       .then(setCar)
       
-    commentService.getAll()
-    .then(setComments);  
+    commentService.getAll(carId)
+    .then((result) => {
+      dispatch({
+      type: 'GET_ALL_COMMENTS',
+      payload: result,
+    });  
 
-
+  });
   }, [carId])
 
   const  addCommentHandler = async (e) => {
@@ -30,11 +39,13 @@ export default function Details() {
     
    const newComment = await commentService.create(
       carId,
-      formData.get('username'),
       formData.get('commentText')
     );
-    setComments(state => [...state, newComment]);
-    console.log(newComment);
+    newComment.owner = { email };
+    dispatch ({
+      type: 'ADD_COMMENT',
+      payload: newComment
+    })
   }
 
 
@@ -72,11 +83,11 @@ export default function Details() {
           <div className={classes.commentsDetails}>
             <h3 className={classes.commentsTitle}>Comments:</h3>
             <ul>
-                {comments.map(({_id, username, text}) => (
+                {comments.map(({_id, text, owner: { email }}) => (
 
                
               <li key={_id} className={classes.comment}>
-                <p className={classes.contentComment}>{username}: {text}</p>
+                <p className={classes.contentComment}>{email}: {text}</p>
               </li>
                ))}
             </ul>
@@ -98,7 +109,6 @@ export default function Details() {
       <div className={classes.commentContainer}>
         <h2 className={classes.titleComment}>Leave a Comment</h2>
         <form className={classes.form} onSubmit={addCommentHandler}>
-           <input type="text" name="username" placeholder="username:" />
           <textarea id="commentText" name="commentText" rows="4" placeholder="Type your comment here..."></textarea>
           <button className={classes.postCommentBtn} type="submit" value="Submit" id="postCommentBtn">Post Comment</button>
         </form>
